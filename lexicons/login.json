@@ -1,0 +1,42 @@
+{
+    "lexicon": 1,
+    "id": "com.atproto.server.login",
+    "defs": {
+      "main": {
+        "type": "procedure",
+        "description": "Login to an account.",
+        "input": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["email", "password"],
+            "properties": {
+              "email": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+              },
+              "password": {
+                "type": "string",
+                "minLength": 6
+              }
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["accessToken", "refreshToken", "userId"],
+            "properties": {
+              "accessToken": { "type": "string" },
+              "refreshToken": { "type": "string" },
+              "userId": { "type": "string" }
+            }
+          }
+        },
+        "errors": [
+          { "name": "InvalidCredentials" }
+        ]
+      }
+    }
+  }

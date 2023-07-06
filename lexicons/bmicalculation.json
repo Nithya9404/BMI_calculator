@@ -1,0 +1,40 @@
+{
+    "defs": {
+      "main": {
+        "input": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "weight": {
+                "type": "number",
+                "minimum": 0
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": ["weight", "height"]
+          }
+        },
+        "output": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "bmi": {
+                "type": "number"
+              },
+              "category": {
+                "type": "string"
+              }
+            },
+            "required": ["bmi", "category"]
+          }
+        },
+        "action": {
+          "function": "calculateBMI"
+        }
+      }
+    }
+  }
+  
